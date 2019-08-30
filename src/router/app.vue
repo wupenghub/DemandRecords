@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div>
-            项目搭建成功
+        <div class="content">
+            <router-view></router-view>
         </div>
     </div>
 </template>

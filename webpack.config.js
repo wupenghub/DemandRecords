@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin') // 导入 在内存中自动生成 index 页面的插件
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // 创建一个插件的实例对象
 const htmlPlugin = new HtmlWebPackPlugin({
     template: path.join(__dirname, './src/index.html'), // 源文件
@@ -14,7 +14,8 @@ module.exports = {
     mode: 'development', // development   production
     // 在 webpack 4.x 中，有一个很大的特性，就是 约定大于配置  约定，默认的打包入口路径是 src -> index.js
     plugins: [
-        htmlPlugin
+        htmlPlugin,
+        new VueLoaderPlugin()
     ],
     module: { // 所有第三方 模块的配置规则
         rules: [ // 第三方匹配规则

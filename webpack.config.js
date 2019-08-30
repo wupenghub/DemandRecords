@@ -3,31 +3,38 @@ const HtmlWebPackPlugin = require('html-webpack-plugin') // 导入 在内存中�
 
 // 创建一个插件的实例对象
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: path.join(__dirname, './src/index.html'), // 源文件
-  filename: 'index.html' // 生成的内存中首页的名称
-})
+    template: path.join(__dirname, './src/index.html'), // 源文件
+    filename: 'index.html' // 生成的内存中首页的名称
+});
 
 
 // 向外暴露一个打包的配置对象；   因为 webpack 是基于Node构建的；所以 webpack 支持所有Node API 和语法
 // webpack 默认只能打包处理 .js 后缀名类型的文件； 像 .png .vue 无法主动处理，所以要配置第三方的loader；
 module.exports = {
-  mode: 'development', // development   production
-  // 在 webpack 4.x 中，有一个很大的特性，就是 约定大于配置  约定，默认的打包入口路径是 src -> index.js
-  plugins: [
-    htmlPlugin
-  ],
-  module: { // 所有第三方 模块的配置规则
-    rules: [ // 第三方匹配规则
-      { test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ }, // 千万别忘记添加 exclude 排除项
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'], // 表示，这几个文件的后缀名，可以省略不写
-    alias: { // 表示别名
-      '@': path.join(__dirname, './src') // 这样，@ 就表示 项目根目录中 src 的这一层路径
+    mode: 'development', // development   production
+    // 在 webpack 4.x 中，有一个很大的特性，就是 约定大于配置  约定，默认的打包入口路径是 src -> index.js
+    plugins: [
+        htmlPlugin
+    ],
+    module: { // 所有第三方 模块的配置规则
+        rules: [ // 第三方匹配规则
+            {test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/}, // 千万别忘记添加 exclude 排除项
+            {test: /\.css$/, use: ["style-loader", "css-loader"]},
+            {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
+            {test: /\.vue$/, use: "vue-loader"},
+            {
+                test: /\.(jpg|png|gif|bmp|jpeg|ttf|otf|eot|svg|woff|woff2)$/,
+                use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]'
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.json'], // 表示，这几个文件的后缀名，可以省略不写
+        alias: { // 表示别名
+            '@': path.join(__dirname, './src') // 这样，@ 就表示 项目根目录中 src 的这一层路径
+        }
     }
-  }
-}
+};
 
 
 // 行不行 ？  目前不行； // 这是 ES6 中 向外导出模块的API 与之对应的 是  import ** from '标识符'

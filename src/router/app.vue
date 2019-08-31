@@ -1,19 +1,26 @@
 <template>
     <div class="container">
         <div class="content">
-            <router-view></router-view>
+            <frame_component></frame_component>
         </div>
     </div>
 </template>
 
 <script>
+    import frame_component from './frameComponent/frameComponent.vue';
     export default {
-        data(){
-
+        data() {
+            return {}
+        },
+        components:{
+            frame_component
         }
     }
 </script>
 
 <style scoped>
-
+    .container{
+        margin: 0;
+        padding: 0;
+    }
 </style>

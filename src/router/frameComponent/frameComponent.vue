@@ -31,19 +31,32 @@
             </div>
         </section>
         <div class="app-box">
-
+            <div class="main-body-side">
+                <div class="head">
+                    <span>项目</span>
+                    <a class="icon">
+                        <i class="fa  fa-newspaper-o"></i>
+                    </a>
+                    <search :message="message"></search>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
-
+    import search from '../search/search.vue';
     export default {
         data() {
-            return {}
+            return {
+                message:'任务名称、编号'
+            }
         },
-        methods: {}
+        methods: {},
+        components:{
+            search
+        }
     }
 </script>
 
@@ -112,6 +125,22 @@
         }
         .app-box {
             padding-left: 70px;
+            .main-body-side {
+                position: fixed;
+                width: 239px;
+                background-color: #fff;
+                height: 100%;
+                .head{
+                    height: 50px;
+                    padding: 0 20px 0 20px;
+                    font-size: 16px;
+                    line-height: 50px;
+                    .icon{
+                        float: right;
+                        color: #ccc;
+                    }
+                }
+            }
         }
     }
 </style>

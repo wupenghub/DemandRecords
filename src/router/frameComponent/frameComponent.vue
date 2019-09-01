@@ -7,25 +7,37 @@
                 </a>
             </div>
             <div class="middle_area">
-                <a class="item">
-                    <i class="fa  fa-comment-o"></i>
-                </a>
-                <a class="item">
-                    <i class="fa  fa-newspaper-o"></i>
-                </a>
-                <a class="item">
-                    <i class="fa  fa-calendar"></i>
-                </a>
-                <a class="item">
-                    <i class="fa  fa-folder-open"></i>
-                </a>
-                <a class="item">
-                    <i class="fa  fa-cubes"></i>
-                </a>
+                <ul>
+                    <li>
+                        <router-link to="/" class="item">
+                            <i class="fa fa-comment-o"></i>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/homePage" class="item">
+                            <i class="fa fa-newspaper-o"></i>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/homePage" class="item">
+                            <i class="fa fa-calendar"></i>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/homePage" class="item">
+                            <i class="fa fa-folder-open"></i>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/homePage" class="item">
+                            <i class="fa fa-cubes"></i>
+                        </router-link>
+                    </li>
+                </ul>
             </div>
             <div class="bottom_area">
                 <a class="item">
-                    <i class="fa  fa-question-circle"></i>
+                    <i class="fa fa-question-circle"></i>
                 </a>
                 <a class="avatar-default" style="background-color: rgb(45, 188, 255);">吴鹏</a>
             </div>
@@ -35,10 +47,13 @@
                 <div class="head">
                     <span>项目</span>
                     <a class="icon">
-                        <i class="fa  fa-newspaper-o"></i>
+                        <i class="fa fa-newspaper-o"></i>
                     </a>
                     <search :message="message"></search>
                 </div>
+            </div>
+            <div class="main-body">
+                <router-view></router-view>
             </div>
         </div>
     </div>
@@ -50,11 +65,11 @@
     export default {
         data() {
             return {
-                message:'任务名称、编号'
+                message: '任务名称、编号'
             }
         },
         methods: {},
-        components:{
+        components: {
             search
         }
     }
@@ -82,16 +97,28 @@
                 }
             }
             .middle_area {
-                .item {
-                    height: 70px;
-                    text-align: center;
-                    display: block;
-                    i {
-                        font-size: 24px;
-                        color: white;
-                        line-height: 70px;
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    li {
+                        list-style: none;
+                        .item {
+                            height: 70px;
+                            text-align: center;
+                            display: block;
+                            i {
+                                font-size: 24px;
+                                color: white;
+                                line-height: 70px;
+                            }
+                        }
+                        .item:hover {
+                            background: rgb(24, 191, 164);
+                            cursor: pointer;
+                        }
                     }
                 }
+
             }
             .bottom_area {
                 position: absolute;
@@ -130,16 +157,19 @@
                 width: 239px;
                 background-color: #fff;
                 height: 100%;
-                .head{
+                .head {
                     height: 50px;
                     padding: 0 20px 0 20px;
                     font-size: 16px;
                     line-height: 50px;
-                    .icon{
+                    .icon {
                         float: right;
                         color: #ccc;
                     }
                 }
+            }
+            .main-body{
+                margin-left: 240px;
             }
         }
     }

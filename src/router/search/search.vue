@@ -21,6 +21,7 @@
     .contain {
         .search_box {
             position: relative;
+            height: 35px;
             .search_input {
                 padding: 6px 0 6px 36px;
                 display: block;
@@ -34,6 +35,7 @@
                 transition: all linear .2s;
                 -webkit-text-fill-color: #ccc;
                 font-size: 14px;
+                position: absolute;
 
             }
             .search_input:hover {

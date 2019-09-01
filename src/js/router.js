@@ -3,7 +3,7 @@ import selectComponent from '../router/common/selectComponent.vue';
 var vueRouter = new VueRouter({
     routes: [
         {
-            path: '/',
+            path: '/project',
             component:selectComponent
 
         }

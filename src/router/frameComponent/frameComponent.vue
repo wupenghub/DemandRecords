@@ -8,29 +8,10 @@
             </div>
             <div class="middle_area">
                 <ul>
-                    <li>
-                        <router-link to="/" class="item">
-                            <i class="fa fa-comment-o"></i>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/homePage" class="item">
-                            <i class="fa fa-newspaper-o"></i>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/homePage" class="item">
-                            <i class="fa fa-calendar"></i>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/homePage" class="item">
-                            <i class="fa fa-folder-open"></i>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/homePage" class="item">
-                            <i class="fa fa-cubes"></i>
+                    <li v-for="item in categoryModules" @mouseenter="enter(item)" @mouseleave="leave(item)">
+                        <router-link :to="item.path" class="item" :key="item.icon">
+                            <i :class="'fa '+item.icon+' icon'"></i>
+                            <span class="desc">{{item.desc}}</span>
                         </router-link>
                     </li>
                 </ul>
@@ -62,13 +43,63 @@
 <script>
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
     import search from '../search/search.vue';
+
     export default {
         data() {
             return {
-                message: '任务名称、编号'
+                message: '任务名称、编号',
+                categoryModules: [
+                    {
+                        icon: 'fa-comment-o',
+                        desc: '消息',
+                        path: '/',
+                        ref:'message',
+                        iconNormal:'fa-comment-o',
+                        iconHover:'fa-comment'
+                    },
+                    {
+                        icon: 'fa-newspaper-o',
+                        desc: '项目',
+                        path: '/home',
+                        ref:'project',
+                        iconNormal:'fa-newspaper-o',
+                        iconHover:'fa-newspaper-o'
+                    },
+                    {
+                        icon: 'fa-calendar',
+                        desc: '日历',
+                        path: '/home',
+                        ref:'calendar',
+                        iconNormal:'fa-calendar',
+                        iconHover:'fa-calendar-check-o'
+                    },
+                    {
+                        icon: 'fa-folder-open-o',
+                        desc: '网盘',
+                        path: '/home',
+                        ref:'disk',
+                        iconNormal:'fa-folder-open-o',
+                        iconHover:'fa-folder-open'
+                    },
+                    {
+                        icon: 'fa-cube',
+                        desc: '应用',
+                        path: '/home',
+                        ref:'application',
+                        iconNormal:'fa-cube',
+                        iconHover:'fa-cubes'
+                    }
+                ]
             }
         },
-        methods: {},
+        methods: {
+            enter(item) {
+                item.icon = item.iconHover;
+            },
+            leave(item) {
+                item.icon = item.iconNormal;
+            }
+        },
         components: {
             search
         }
@@ -106,15 +137,33 @@
                             height: 70px;
                             text-align: center;
                             display: block;
-                            i {
+                            text-decoration: none;
+                            > * {
+                                transition: all linear .4s;
+                            }
+                            i.icon {
                                 font-size: 24px;
                                 color: white;
                                 line-height: 70px;
+                                display: inline-block;
+                            }
+                            .desc {
+                                line-height: 25px;
+                                font-size: 12px;
+                                color: white;
+                                display: none;
                             }
                         }
                         .item:hover {
                             background: rgb(24, 191, 164);
                             cursor: pointer;
+                            i.icon {
+                                line-height: 40px;
+                            }
+                            span.desc {
+                                display: block;
+                                line-height: 25px;
+                            }
                         }
                     }
                 }
@@ -168,7 +217,7 @@
                     }
                 }
             }
-            .main-body{
+            .main-body {
                 margin-left: 240px;
             }
         }

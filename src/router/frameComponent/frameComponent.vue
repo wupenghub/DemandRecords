@@ -9,7 +9,7 @@
             <div class="middle_area">
                 <ul>
                     <li v-for="item in categoryModules">
-                        <router-link href="#" :to="item.path" class="item" :key="item.icon"
+                        <router-link :to="item.path" class="item" :key="item.icon"
                                      @mouseenter.native="enter(item)" @mouseleave.native="leave(item)"
                                      @click.native="chooseProject(item)">
                             <i :class="'fa '+item.icon+' icon'"></i>
@@ -45,6 +45,7 @@
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
     import search from '../search/search.vue';
     import sideHeader from '../common/sideHeader.vue';
+
     export default {
         data() {
             return {
@@ -95,12 +96,12 @@
                         showTriangle: false
                     }
                 ],
-                titleObj:{
+                titleObj: {
                     title: '',
                     titleLeftIcon: '',
                     titleRightIcon: ''
                 },
-                message:''
+                message: ''
             }
         },
         methods: {
@@ -240,7 +241,7 @@
                 .head {
 
                 }
-                .middle{
+                .middle {
                     padding: 0 20px 0 20px;
                 }
             }

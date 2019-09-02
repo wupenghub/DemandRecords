@@ -2,10 +2,11 @@
     <div class="contain">
         <div class="head">
             <div class="clearfix">
-                <span>{{this.$store.state.sideObj.title}}</span>
+                <span>{{this.$store.state.sideTitleObj.title}}</span>
                 <a class="icon">
-                    <i :class="'fa '+ this.$store.state.sideObj.titleRightIcon "></i>
+                    <i :class="'fa '+ this.$store.state.sideTitleObj.titleRightIcon "></i>
                 </a>
+                <search v-show="$store.state.sideTitleObj.showSearch"></search>
             </div>
         </div>
     </div>
@@ -13,18 +14,16 @@
 </template>
 
 <script>
+    import search from '../search/search.vue';
     export default {
         data() {
             return {
-                mainSideObj: {
-                    title: '',
-                    titleLeftIcon: '',
-                    titleRightIcon: ''
-                }
             }
         },
-        props: [
-            'titleObj'
+        components:{
+            search
+        },
+        props:[
         ]
     }
 </script>

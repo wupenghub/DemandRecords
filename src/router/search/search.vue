@@ -1,7 +1,7 @@
 <template>
     <div class="contain">
         <div class="search_box">
-            <input type="text" class="search_input" :placeholder="'请输入'+message">
+            <input type="text" class="search_input" :placeholder="$store.state.sideTitleObj.placeHolder">
             <i class="fa fa-search icon"></i>
         </div>
     </div>
@@ -13,7 +13,7 @@
         data() {
             return {}
         },
-        props:['message']
+        props:[]
     }
 </script>
 

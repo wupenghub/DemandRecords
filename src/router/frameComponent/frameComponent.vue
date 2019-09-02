@@ -28,10 +28,8 @@
         </section>
         <div class="app-box">
             <div class="main-body-side">
-                <!--<sideHeader :titleObj="titleObj"></sideHeader>-->
                 <sideHeader></sideHeader>
                 <div class="middle">
-                    <search :message="message"></search>
                 </div>
 
             </div>
@@ -44,7 +42,7 @@
 
 <script>
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
-    import search from '../search/search.vue';
+//    import search from '../search/search.vue';
     import sideHeader from '../common/sideHeader.vue';
 
     export default {
@@ -95,14 +93,13 @@
                         iconNormal: 'fa-cube',
                         iconHover: 'fa-cubes',
                         showTriangle: false
-                    }
+                    },
                 ],
                 titleObj: {
                     title: '',
                     titleLeftIcon: '',
                     titleRightIcon: ''
                 },
-                message: ''
             }
         },
         methods: {
@@ -118,11 +115,10 @@
                     item.showTriangle = false;
                 });
                 item.showTriangle = true;
-                this.$store.commit('updateSideInfo', {title: item.desc, titleRightIcon: item.iconNormal})
+                this.$store.commit('updateSideInfo', {title: item.desc, titleRightIcon: item.iconNormal,placeHolder:'请输入'})
             }
         },
         components: {
-            search,
             sideHeader
         }
     }

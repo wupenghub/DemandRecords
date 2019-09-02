@@ -13,17 +13,21 @@ Vue.use(ElementUI);
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
-        sideObj: {
+        sideTitleObj: {
             title: '',
             titleLeftIcon: '',
-            titleRightIcon: ''
+            titleRightIcon: '',
+            showSearch:true,
+            placeHolder:''
         }
     },
     mutations: {
-        updateSideInfo(state, sideObj) {
-            state.sideObj.title = sideObj.title ? sideObj.title : state.sideObj.title;
-            state.sideObj.titleLeftIcon = sideObj.titleLeftIcon ? sideObj.titleLeftIcon : state.sideObj.titleLeftIcon;
-            state.sideObj.titleRightIcon = sideObj.titleRightIcon ? sideObj.titleRightIcon : state.sideObj.titleRightIcon;
+        updateSideInfo(state, sideTitleObj) {
+            state.sideTitleObj.title = sideTitleObj.title ? sideTitleObj.title : state.sideTitleObj.title;
+            state.sideTitleObj.titleLeftIcon = sideTitleObj.titleLeftIcon ? sideTitleObj.titleLeftIcon : state.sideTitleObj.titleLeftIcon;
+            state.sideTitleObj.titleRightIcon = sideTitleObj.titleRightIcon ? sideTitleObj.titleRightIcon : state.sideTitleObj.titleRightIcon;
+            state.sideTitleObj.placeHolder = sideTitleObj.placeHolder ? sideTitleObj.placeHolder : state.sideTitleObj.placeHolder;
+            state.sideTitleObj.showSearch = sideTitleObj.showSearch==undefined ? state.sideTitleObj.showSearch:sideTitleObj.showSearch;
         }
     }
 });

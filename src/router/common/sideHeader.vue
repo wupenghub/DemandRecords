@@ -2,9 +2,9 @@
     <div class="contain">
         <div class="head">
             <div class="clearfix">
-                <span>{{this.titleObj.title}}</span>
+                <span>{{this.$store.state.sideObj.title}}</span>
                 <a class="icon">
-                    <i :class="'fa '+ this.titleObj.titleRightIcon "></i>
+                    <i :class="'fa '+ this.$store.state.sideObj.titleRightIcon "></i>
                 </a>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 }
             }
         },
-        props:[
+        props: [
             'titleObj'
         ]
     }

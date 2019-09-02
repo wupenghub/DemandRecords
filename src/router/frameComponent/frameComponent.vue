@@ -28,7 +28,8 @@
         </section>
         <div class="app-box">
             <div class="main-body-side">
-                <sideHeader :titleObj="titleObj"></sideHeader>
+                <!--<sideHeader :titleObj="titleObj"></sideHeader>-->
+                <sideHeader></sideHeader>
                 <div class="middle">
                     <search :message="message"></search>
                 </div>
@@ -89,7 +90,7 @@
                     {
                         icon: 'fa-cube',
                         desc: '应用',
-                        path: '/home',
+                        path: '/application',
                         ref: 'application',
                         iconNormal: 'fa-cube',
                         iconHover: 'fa-cubes',
@@ -117,9 +118,7 @@
                     item.showTriangle = false;
                 });
                 item.showTriangle = true;
-                this.titleObj.title = item.desc;
-                this.titleObj.titleRightIcon = item.iconNormal;
-                this.message = item.desc;
+                this.$store.commit('updateSideInfo', {title: item.desc, titleRightIcon: item.iconNormal})
             }
         },
         components: {

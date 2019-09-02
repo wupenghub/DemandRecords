@@ -114,7 +114,7 @@
             },
             chooseProject(item) {
                 this.categoryModules.forEach(item => {
-                    console.log(item.showTriangle = false)
+                    item.showTriangle = false;
                 });
                 item.showTriangle = true;
                 this.titleObj.title = item.desc;

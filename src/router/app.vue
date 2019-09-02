@@ -14,6 +14,11 @@
         },
         components:{
             frame_component
+        },
+        watch: {
+            "$route.path": function (newval) {
+                console.log(newval)
+            }
         }
     }
 </script>

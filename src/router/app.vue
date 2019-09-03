@@ -18,6 +18,14 @@
         },
         watch: {
             $route(to, from) {
+                this.renderPage();
+            }
+        },
+        mounted(){
+            this.renderPage();
+        },
+        methods:{
+            renderPage(){
                 this.$store.state.currentModule = this.$store.state.moduleObjList.filter(item => {
                     return this.$route.path == item.path;
                 });

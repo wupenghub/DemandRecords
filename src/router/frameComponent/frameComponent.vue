@@ -34,7 +34,7 @@
 
             </div>
             <div class="main-body">
-                <router-view></router-view>
+                <router-view name="selectComponent"></router-view>
             </div>
         </div>
     </div>
@@ -112,7 +112,8 @@
                 item.icon = item.iconNormal;
 
             },
-            chooseProject(item) {}
+            chooseProject(item) {
+            }
         },
         components: {
             sideHeader

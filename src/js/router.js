@@ -9,7 +9,9 @@ var vueRouter = new VueRouter({
         },
         {
             path: '/project',
-            component: selectComponent
+            components:{
+                'selectComponent':selectComponent
+            }
 
         }
     ]

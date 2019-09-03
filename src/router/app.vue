@@ -21,11 +21,11 @@
                 this.renderPage();
             }
         },
-        mounted(){
+        mounted() {
             this.renderPage();
         },
-        methods:{
-            renderPage(){
+        methods: {
+            renderPage() {
                 this.$store.state.currentModule = this.$store.state.moduleObjList.filter(item => {
                     return this.$route.path == item.path;
                 });
@@ -37,8 +37,6 @@
                     }
                 });
                 this.$store.state.currentModule.showTriangle = true;
-                this.$store.state.moduleObjList.forEach(item => {
-                });
                 this.$store.commit('updateSideInfo', {
                     title: this.$store.state.currentModule[0].desc,
                     titleRightIcon: this.$store.state.currentModule[0].iconNormal,
@@ -47,6 +45,7 @@
                 if (this.$route.path == '/message') {
 
                 } else if (this.$route.path == '/project') {
+
 
                 } else if (this.$route.path == '/calendar') {
 

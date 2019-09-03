@@ -17,12 +17,12 @@
             frame_component
         },
         watch: {
-            "$route.path": function (newval) {
+            $route(to, from) {
                 this.$store.state.currentModule = this.$store.state.moduleObjList.filter(item => {
-                    return newval == item.path;
+                    return this.$route.path == item.path;
                 });
                 this.$store.state.moduleObjList.forEach(item => {
-                    if (item.path == newval) {
+                    if (item.path == this.$route.path) {
                         item.showTriangle = true;
                     } else {
                         item.showTriangle = false;
@@ -36,15 +36,15 @@
                     titleRightIcon: this.$store.state.currentModule[0].iconNormal,
                     placeHolder: '请输入信息'
                 });
-                if (newval == '/message') {
+                if (this.$route.path == '/message') {
 
-                } else if (newval == '/project') {
+                } else if (this.$route.path == '/project') {
 
-                } else if (newval == '/calendar') {
+                } else if (this.$route.path == '/calendar') {
 
-                } else if (newval == '/cloudDisk') {
+                } else if (this.$route.path == '/cloudDisk') {
 
-                } else if (newval == '/application') {
+                } else if (this.$route.path == '/application') {
 
                 }
             }

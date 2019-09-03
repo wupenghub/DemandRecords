@@ -8,7 +8,7 @@
             </div>
             <div class="middle_area">
                 <ul>
-                    <li v-for="item in categoryModules">
+                    <li v-for="item in $store.state.moduleObjList">
                         <router-link :to="item.path" class="item" :key="item.icon"
                                      @mouseenter.native="enter(item)" @mouseleave.native="leave(item)"
                                      @click.native="chooseProject(item)">
@@ -42,7 +42,6 @@
 
 <script>
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
-//    import search from '../search/search.vue';
     import sideHeader from '../common/sideHeader.vue';
 
     export default {
@@ -65,7 +64,7 @@
                         ref: 'project',
                         iconNormal: 'fa-newspaper-o',
                         iconHover: 'fa-newspaper-o',
-                        showTriangle: true
+                        showTriangle: false
                     },
                     {
                         icon: 'fa-calendar',
@@ -102,6 +101,9 @@
                 },
             }
         },
+        created() {
+            this.$store.commit('updateModuleList', this.categoryModules);
+        },
         methods: {
             enter(item) {
                 item.icon = item.iconHover;
@@ -110,13 +112,7 @@
                 item.icon = item.iconNormal;
 
             },
-            chooseProject(item) {
-                this.categoryModules.forEach(item => {
-                    item.showTriangle = false;
-                });
-                item.showTriangle = true;
-                this.$store.commit('updateSideInfo', {title: item.desc, titleRightIcon: item.iconNormal,placeHolder:'请输入'})
-            }
+            chooseProject(item) {}
         },
         components: {
             sideHeader

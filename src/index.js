@@ -17,9 +17,11 @@ const store = new Vuex.Store({
             title: '',
             titleLeftIcon: '',
             titleRightIcon: '',
-            showSearch:true,
-            placeHolder:''
-        }
+            showSearch: true,
+            placeHolder: ''
+        },
+        moduleObjList: [],
+        currentModule:{}
     },
     mutations: {
         updateSideInfo(state, sideTitleObj) {
@@ -27,7 +29,12 @@ const store = new Vuex.Store({
             state.sideTitleObj.titleLeftIcon = sideTitleObj.titleLeftIcon ? sideTitleObj.titleLeftIcon : state.sideTitleObj.titleLeftIcon;
             state.sideTitleObj.titleRightIcon = sideTitleObj.titleRightIcon ? sideTitleObj.titleRightIcon : state.sideTitleObj.titleRightIcon;
             state.sideTitleObj.placeHolder = sideTitleObj.placeHolder ? sideTitleObj.placeHolder : state.sideTitleObj.placeHolder;
-            state.sideTitleObj.showSearch = sideTitleObj.showSearch==undefined ? state.sideTitleObj.showSearch:sideTitleObj.showSearch;
+            state.sideTitleObj.showSearch = sideTitleObj.showSearch == undefined ? state.sideTitleObj.showSearch : sideTitleObj.showSearch;
+        },
+        updateModuleList(state, moduleList) {
+            state.moduleObjList = [];
+            if (moduleList)
+                state.moduleObjList = state.moduleObjList.concat(moduleList);
         }
     }
 });

@@ -45,8 +45,7 @@
                 if (this.$route.path == '/message') {
 
                 } else if (this.$route.path == '/project') {
-
-
+                    this.$router.push({ name: 'projectSideMiddleContent' });
                 } else if (this.$route.path == '/calendar') {
 
                 } else if (this.$route.path == '/cloudDisk') {

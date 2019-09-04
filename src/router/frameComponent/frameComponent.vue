@@ -30,6 +30,7 @@
             <div class="main-body-side">
                 <sideHeader></sideHeader>
                 <div class="middle">
+                    <router-view name="projectSideMiddleContent"></router-view>
                 </div>
 
             </div>

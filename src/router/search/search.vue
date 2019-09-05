@@ -36,7 +36,6 @@
                 -webkit-text-fill-color: #ccc;
                 font-size: 14px;
                 position: absolute;
-
             }
             .search_input:hover {
                 border-color: #22d7bb;

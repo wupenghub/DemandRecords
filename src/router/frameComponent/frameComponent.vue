@@ -29,13 +29,12 @@
         <div class="app-box">
             <div class="main-body-side">
                 <sideHeader></sideHeader>
-                <div class="middle clearfix">
+                <div class="middle">
                     <router-view name="projectSideMiddleContent"></router-view>
                 </div>
             </div>
             <div class="main-body">
                 <router-view name="selectComponent"></router-view>
-                <!--<router-view></router-view>-->
             </div>
         </div>
     </div>

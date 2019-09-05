@@ -38,6 +38,7 @@
                 } else if (this.$route.path == '/application') {
                     this.initPage();
                 } else {
+
                 }
             },
             initPage() {

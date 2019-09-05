@@ -28,13 +28,11 @@
             renderPage() {
                 if (this.$route.path == '/message') {
                     this.initPage();
-
                 } else if (this.$route.path == '/project') {
                     this.initPage();
                     this.$router.push({path: '/project/projectSideMiddleContent'});
                 } else if (this.$route.path == '/calendar') {
                     this.initPage();
-
                 } else if (this.$route.path == '/cloudDisk') {
                     this.initPage();
                 } else if (this.$route.path == '/application') {

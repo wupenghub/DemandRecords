@@ -52,13 +52,9 @@
                 color: #aaa;
                 text-align: center;
             }
-            .single_item:hover {
-                background: #f3f3f3;
+            .single_item:hover{
+                color: #22d7bb;
             }
-        }
-
-        .space {
-            padding-left: 19px;
         }
     }
 </style>

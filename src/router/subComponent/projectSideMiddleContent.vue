@@ -42,7 +42,6 @@
         margin-top: 10px;
         .item {
             padding: 10px 20px;
-            cursor: pointer;
             .icon {
                 font-size: 15px;
                 display: inline-block;
@@ -51,6 +50,9 @@
                 height: 21px;
                 color: #aaa;
                 text-align: center;
+            }
+            .single_item{
+                cursor: pointer;
             }
             .single_item:hover{
                 color: #22d7bb;

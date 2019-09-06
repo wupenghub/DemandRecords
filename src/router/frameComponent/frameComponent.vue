@@ -30,7 +30,7 @@
             <div class="main-body-side">
                 <sideHeader></sideHeader>
                 <div class="middle">
-                    <router-view name="projectSideMiddleContent"></router-view>
+                    <router-view name="projectSideMiddleContent" :sideDirectories="sideDirectories"></router-view>
                 </div>
             </div>
             <div class="main-body">
@@ -99,6 +99,87 @@
                     titleLeftIcon: '',
                     titleRightIcon: ''
                 },
+                sideDirectories: [
+                    {
+                        desc: '工作',
+                        icon: 'fa fa-caret-right icon',
+                        path: '/',
+                        sonList: [
+                            {
+                                desc: '我的任务',
+                                icon: 'fa fa-user icon',
+                                path: '/',
+                                open: true,
+                                sonList: [
+                                    {
+                                        desc: '我的任务',
+                                        icon: 'fa fa-user icon',
+                                        path: '/',
+                                        open: true,
+                                    },
+                                    {
+                                        desc: '我的任务',
+                                        icon: 'fa fa-user icon',
+                                        path: '/',
+                                        open: true,
+                                    },
+                                ]
+                            },
+                            {
+                                desc: '统计报表',
+                                icon: 'fa fa-pie-chart icon',
+                                path: '/',
+                                open: true
+                            },
+                            {
+                                desc: '工时视图',
+                                icon: 'fa fa-bar-chart icon',
+                                path: '/',
+                                open: true
+                            },
+                            {
+                                desc: '时间视图',
+                                icon: 'fa fa-tasks icon',
+                                path: '/',
+                                open: true
+                            },
+                            {
+                                desc: '人员视图',
+                                icon: 'fa fa-address-card icon',
+                                path: '/',
+                                open: true
+                            },
+                            {
+                                desc: '日历视图',
+                                icon: 'fa fa-calendar icon',
+                                path: '/',
+                                open: true
+                            }
+                        ],
+                        open: true
+                    },
+                    {
+                        desc: '项目',
+                        icon: 'fa fa-caret-right icon',
+                        path: '/',
+                        sonList: [],
+                        open: true
+                    },
+                    {
+                        desc: '配置中心',
+                        icon: 'fa fa-gear icon',
+                        path: '/',
+                        sonList: [],
+                        open: true
+                    },
+                    {
+                        desc: '回收站',
+                        icon: 'fa fa-bitbucket icon',
+                        path: '/',
+                        sonList: [],
+                        open: true
+                    }
+                ]
             }
         },
         created() {

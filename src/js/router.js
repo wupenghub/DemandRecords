@@ -8,13 +8,22 @@ var vueRouter = new VueRouter({
             path: '/',
             redirect: '/project'
         },
+        /*{
+            path: '/project/projectSideMiddleContent',
+            name: 'selectComponent',
+            component: selectComponent
+        },
         {
             path: '/project/projectSideMiddleContent',
-            components: {
-                projectSideMiddleContent,
-                selectComponent
+            component: projectSideMiddleContent,
+            name: 'projectSideMiddleContent'
+        },*/
+        {
+            path: '/project/projectSideMiddleContent',
+            components:{
+                selectComponent,
+                projectSideMiddleContent
             }
-
         }
     ]
 });

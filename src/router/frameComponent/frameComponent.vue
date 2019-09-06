@@ -173,7 +173,7 @@
                             .triangle {
                                 position: absolute;
                                 top: 25px;
-                                right: 0px;
+                                right: 0;
                                 font-size: 16px;
                                 color: white;
                             }

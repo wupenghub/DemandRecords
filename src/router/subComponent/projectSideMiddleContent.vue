@@ -1,9 +1,11 @@
 <template>
     <div class="contain">
         <ul>
-            <li v-for="item in sideDirectories">
-                <i v-show="item.sonList&&item.sonList.length>0" class="fa fa-caret-right icon"></i>
-                <i :class="item.icon"></i>
+            <li v-for="item in sideDirectories" @click="openFolder(item)">
+                <i v-show="item.sonList&&item.sonList.length>0"
+                   :class="[item.open?'fa fa-caret-right icon':'fa fa-sort-desc icon']">
+                </i>
+                <i v-show="!item.sonList||item.sonList.length==0" :class="[item.icon]"></i>
                 {{item.desc}}
             </li>
         </ul>
@@ -19,27 +21,36 @@
                         desc: '工作',
                         icon: 'fa fa-caret-right icon',
                         path: '/',
-                        sonList: []
+                        sonList: [1],
+                        open: true
                     },
                     {
                         desc: '项目',
                         icon: 'fa fa-caret-right icon',
                         path: '/',
-                        sonList: []
+                        sonList: [1],
+                        open: false
                     },
                     {
                         desc: '配置中心',
                         icon: 'fa fa-gear icon',
                         path: '/',
-                        sonList: []
+                        sonList: [],
+                        open: false
                     },
                     {
                         desc: '回收站',
                         icon: 'fa fa-bitbucket icon',
                         path: '/',
-                        sonList: []
+                        sonList: [],
+                        open: false
                     }
                 ]
+            }
+        },
+        methods: {
+            openFolder(item) {
+                item.open = !item.open;
             }
         }
     }
@@ -61,7 +72,6 @@
                     width: 10px;
                     height: 21px;
                     color: #aaa;
-                    text-align: left;
                     text-align: center;
                 }
             }

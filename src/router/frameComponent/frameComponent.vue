@@ -118,18 +118,80 @@
                                         open: true,
                                     },
                                     {
-                                        desc: '我的任务',
-                                        icon: 'fa fa-user icon',
+                                        desc: '统计报表',
+                                        icon: 'fa fa-pie-chart icon',
                                         path: '/',
-                                        open: true,
+                                        open: true
                                     },
+                                    {
+                                        desc: '工时视图',
+                                        icon: 'fa fa-bar-chart icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '时间视图',
+                                        icon: 'fa fa-tasks icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '人员视图',
+                                        icon: 'fa fa-address-card icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '日历视图',
+                                        icon: 'fa fa-calendar icon',
+                                        path: '/',
+                                        open: true
+                                    }
                                 ]
                             },
                             {
                                 desc: '统计报表',
                                 icon: 'fa fa-pie-chart icon',
                                 path: '/',
-                                open: true
+                                open: true,
+                                sonList: [
+                                    {
+                                        desc: '我的任务',
+                                        icon: 'fa fa-user icon',
+                                        path: '/',
+                                        open: true,
+                                    },
+                                    {
+                                        desc: '统计报表',
+                                        icon: 'fa fa-pie-chart icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '工时视图',
+                                        icon: 'fa fa-bar-chart icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '时间视图',
+                                        icon: 'fa fa-tasks icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '人员视图',
+                                        icon: 'fa fa-address-card icon',
+                                        path: '/',
+                                        open: true
+                                    },
+                                    {
+                                        desc: '日历视图',
+                                        icon: 'fa fa-calendar icon',
+                                        path: '/',
+                                        open: true
+                                    }
+                                ]
                             },
                             {
                                 desc: '工时视图',
@@ -311,6 +373,7 @@
                 width: 239px;
                 background-color: #fff;
                 height: 100%;
+                overflow:auto;
                 .head {
 
                 }

@@ -10,8 +10,7 @@
                 <ul>
                     <li v-for="item in $store.state.moduleObjList">
                         <router-link :to="item.path" class="item" :key="item.icon"
-                                     @mouseenter.native="enter(item)" @mouseleave.native="leave(item)"
-                                     @click.native="chooseProject(item)">
+                                     @mouseenter.native="enter(item)" @mouseleave.native="leave(item)">
                             <i :class="'fa '+item.icon+' icon'"></i>
                             <span class="desc">{{item.desc}}</span>
                             <i v-show="item.showTriangle" class="fa fa-caret-left triangle"></i>
@@ -30,11 +29,11 @@
             <div class="main-body-side">
                 <sideHeader></sideHeader>
                 <div class="middle">
-                    <router-view name="projectSideMiddleContent" :sideDirectories="sideDirectories"></router-view>
+                    <router-view :sideDirectories="sideDirectories" @fun="getInfo"></router-view>
                 </div>
             </div>
             <div class="main-body">
-                <router-view name="selectComponent"></router-view>
+                <selectComponent :info="itemInfo"></selectComponent>
             </div>
         </div>
     </div>
@@ -43,6 +42,7 @@
 <script>
     import '../../lib/font-awesome-4.7.0/css/font-awesome.min.css';
     import sideHeader from '../common/sideHeader.vue';
+    import selectComponent from '../common/selectComponent.vue'
 
     export default {
         data() {
@@ -103,18 +103,17 @@
                     {
                         desc: '工作',
                         icon: 'fa fa-caret-right icon',
-                        path: '/',
                         sonList: [
                             {
                                 desc: '我的任务',
                                 icon: 'fa fa-user icon',
-                                path: '/',
-                                open: true
+                                path: '/project/projectSideMiddleContent/selectComponent',
+                                open: true,
                             },
                             {
                                 desc: '统计报表',
                                 icon: 'fa fa-pie-chart icon',
-                                path: '/',
+                                path: '/project/projectSdeMiddleContent/statisticalReport',
                                 open: true,
                             },
                             {
@@ -172,7 +171,8 @@
                         sonList: [],
                         open: true
                     }
-                ]
+                ],
+                itemInfo:{}
             }
         },
         created() {
@@ -186,11 +186,13 @@
                 item.icon = item.iconNormal;
 
             },
-            chooseProject(item) {
+            getInfo(item){
+                this.itemInfo = item;
             }
         },
         components: {
-            sideHeader
+            sideHeader,
+            selectComponent
         }
     }
 </script>
@@ -307,9 +309,6 @@
                 overflow: auto;
                 .head {
 
-                }
-                .middle {
-                    /*padding: 0 20px 0 20px;*/
                 }
             }
             .main-body {

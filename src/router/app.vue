@@ -28,7 +28,7 @@
             renderPage() {
                 if (this.$route.path == '/message') {
                     this.initPage();
-                } else if (this.$route.path == '/project') {
+                } else if (this.$route.path.indexOf('/project')!=-1) {
                     this.initPage();
                     this.$router.push({path: '/project/projectSideMiddleContent'});
                 } else if (this.$route.path == '/calendar') {
@@ -43,16 +43,22 @@
             },
             initPage() {
                 this.$store.state.currentModule = this.$store.state.moduleObjList.filter(item => {
-                    return this.$route.path == item.path;
+                    return this.$route.path.indexOf(item.path)!=-1;
                 });
                 this.$store.state.moduleObjList.forEach(item => {
-                    if (item.path == this.$route.path) {
+                    /*if (item.path == this.$route.path) {
+                        item.showTriangle = true;
+                    } else {
+                        item.showTriangle = false;
+                    }*/
+                    if (this.$route.path.indexOf(item.path)!=-1) {
                         item.showTriangle = true;
                     } else {
                         item.showTriangle = false;
                     }
                 });
-                this.$store.state.currentModule.showTriangle = true;
+//                this.$store.state.currentModule.showTriangle = true;
+                console.log(this.$store.state.currentModule.length)
                 if (this.$store.state.currentModule[0]) {
                     this.$store.commit('updateSideInfo', {
                         title: this.$store.state.currentModule[0].desc,

@@ -1,9 +1,11 @@
 <template>
     <div id="contain">
         <div class="head_top">
-            <i :class="[headInfo.icon]"></i>
-            <span class="title_name">{{headInfo.desc}}</span>
-
+            <div class="title_desc">
+                <i :class="[headInfo.icon]"></i>
+                <span class="title_name">{{headInfo.desc}}</span>
+            </div>
+            <projectHeaderTab></projectHeaderTab>
         </div>
         <div class="head_bottom">
         </div>
@@ -12,11 +14,16 @@
 </template>
 
 <script>
+    import projectHeaderTab from './projectHeaderTab.vue';
+
     export default {
         data() {
             return {}
         },
-        props: ['headInfo']
+        props: ['headInfo'],
+        components: {
+            projectHeaderTab
+        }
 
     }
 </script>
@@ -30,14 +37,17 @@
             background: #fff;
             line-height: 50px;
             padding: 0 15px 0 15px;
-            .icon {
-                font-size: 20px;
-                color: #22d7bb;
-                padding: 5px;
-            }
-            .title_name {
-                padding: 5px;
-                font-size: 16px;
+            .title_desc {
+                float: left;
+                .icon {
+                    font-size: 20px;
+                    color: #22d7bb;
+                    padding: 5px;
+                }
+                .title_name {
+                    padding: 5px;
+                    font-size: 16px;
+                }
             }
         }
         .head_bottom {

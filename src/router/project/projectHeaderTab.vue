@@ -22,10 +22,6 @@
         },
         mounted () {
             console.log(this.$refs.tabs.$children[0].tab)
-            /*this.$refs.tabs.$children[0].$refs.tabs[2].style.display = 'none';
-            this.$refs.tabs.$children[0].$refs.tabs[3].style.display = 'none';
-            this.$refs.tabs.$children[0].$refs.tabs[4].style.display = 'none';
-            this.$refs.tabs.$children[0].$refs.tabs[7].style.display = 'none';*/
         }
     };
 </script>

@@ -62,6 +62,7 @@
             .single_item {
                 cursor: pointer;
                 transition: all linear .2s;
+                height: 23px;
             }
             .single_item:not(.directory):hover {
                 color: #22d7bb;
